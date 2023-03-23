@@ -11,11 +11,12 @@ const camera = new THREE.PerspectiveCamera(
   1000000
 );
 document.body.appendChild(renderer.domElement);
+let cameraZ = 5;
 const controls = new TrackballControls(camera, renderer.domElement);
 const light = new THREE.AmbientLight(0xffffff);
 light.position.set(0, 0, 5);
 scene.add(light);
-camera.position.copy(new THREE.Vector3(2.5, 5, 10.5));
+camera.position.copy(new THREE.Vector3(3, 10, 16));
 // Create a sine wave - 2D Line
 const pts = [
   new THREE.Vector2(0, 0),
@@ -72,11 +73,11 @@ const mesh2 = new THREE.Mesh(geometry2, material2);
 const mesh2wire = new THREE.Mesh(geometry2, material2wire);
 mesh2.add(mesh2wire);
 scene.add(mesh2);
-
 const animate = function () {
   requestAnimationFrame(animate);
 
   renderer.render(scene, camera);
   controls.update();
 };
+
 animate();
